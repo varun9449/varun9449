@@ -55,7 +55,7 @@ variable "adminusername" {
   default     = "azureuser"
 }
 
-variable "adminpassword" {
+variable "admin_password" {
   type        =  string
   description = "Name of the subnet"
   default     = "Azure@123456"
