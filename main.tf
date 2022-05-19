@@ -97,17 +97,6 @@ resource "azurerm_network_interface_security_group_association" "nsg-nic" {
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-data "azurerm_key_vault" "kv" {
-  name                = "infrakey01"
-  resource_group_name = "RG_01"
-}
-
-
-
-data "azurerm_key_vault_secret" "key" {
-  name         = "infra"
-  key_vault_id = data.azurerm_key_vault.kv.id
-}
 
 resource "azurerm_windows_virtual_machine" "vm" {
   name                = var.vm_name
@@ -115,7 +104,7 @@ resource "azurerm_windows_virtual_machine" "vm" {
   location            = azurerm_resource_group.RG_01.location
   size                = "Standard_F2"
   admin_username      = "adminuser"
-  admin_password      = data.azurerm_key_vault_secret.key.value
+  admin_password      = var.admin_password
   network_interface_ids = [
     azurerm_network_interface.nic.id,
   ]
