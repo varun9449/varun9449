@@ -1,13 +1,13 @@
 variable "resource_group_name" {
   type        =  string
   description = "Name of the resource group"
-  default     = "RG_05"
+  default     = "varun_test_RG"
 }
 
 variable "location" {
   type        =  string
   description = "Name of the location"
-  default     = "eastus"
+  default     = "Australia East"
 }
 
 variable "tags" {
@@ -40,13 +40,13 @@ variable "nsg_name" {
 variable "nic_name" {
   type        =  string
   description = "Name of the subnet"
-  default     = "varnic"
+  default     = "varun-nic"
 }
 
 variable "vm_name" {
   type        =  string
   description = "Name of the subnet"
-  default     = "var-vm-01"
+  default     = "vm-01"
 }
 
 variable "adminusername" {
